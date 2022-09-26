@@ -1,0 +1,157 @@
+:root {
+--teal: #0097a7;
+}
+
+header {
+    background: linear-gradient(aquamarine, var(--teal));
+}
+
+header h1 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 32px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header img {
+    border: 5px solid black;
+    /* Sets the position of the profile picture outside of the flow */
+    position: absolute;
+    top: 10px;
+    left: 5%;
+    width: 108px;
+    height: 108px;
+}
+
+nav ul {
+    display: flex;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    /* Places nav-bar to the left of the screen */
+    justify-content: flex-end;
+    
+}
+
+nav li a {
+    color: black;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* When an one of the links in the nav bar is hovered over, the color changes */
+nav li a:hover {
+    background-color: var(--teal);
+    color: #e7e7e7;
+}
+
+article a {
+    text-decoration: none;
+}
+
+.center {
+    text-align: center;
+}
+
+#about-me {
+    padding-top: 15px;
+    display: grid;
+    /* 1 column is 30% of the width, 3 more take up the remaining space evenly */
+    grid-template-columns: 30% repeat(3, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 1em 20px;
+}
+
+/* sets the area of the element in the grid */
+#paragraph-one {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#paragraph-two {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#deployed-applications {
+    padding-top: 25px;
+    display: grid;
+    /* 1 column is 30% of the width, the second is 70% */
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 50 repeat(2, 100px);
+    gap: 1em 20px;
+}
+
+#card1 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#card1 img {
+    /* blurs and darkens the image when not hovered over */
+    filter: brightness(66%) blur(2px);
+    border-radius: 35px;
+    width: 750px;
+    height: 450px;  
+}
+
+#card1 img:hover {
+    /* removes blur and darken */
+    filter: none;
+}
+
+#card1 h3 {
+    position: absolute;
+    background-color: var(--teal);
+    color: white;
+    padding: 5px 30px 20px 5px;
+    border: 1px dashed black;
+    top: 100%;
+    left: 35%;
+}
+
+.cards {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.cards img {
+    /* blurs and darkens the image when not hovered over */
+    filter: brightness(66%) blur(2px);
+    border-radius: 12px;
+    width: 250px;
+    height: 150px; 
+}
+
+.cards img:hover {
+    /* removes blur and darken */
+    filter: none;
+}
+
+.cards h4 {
+    position: absolute;
+    font-size: 12px;
+    background-color: var(--teal);
+    color: white;
+    padding: 5px 8px 20px 5px;
+    border: 1px dashed black;
+    top: 130%;
+    left: 32%;
+}
+
+footer {
+    padding-top: 25px;
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: 1em 20px;
+}
