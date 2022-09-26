@@ -5,7 +5,7 @@ The goal of this project was to build my own portfolio from scratch with the ski
 
 ## Installation
 
-Click this link to view the deployed website: https://farmfreshyeets.github.io/chellenge-2-portfolio/
+Click this link to view the deployed website: https://farmfreshyeets.github.io/challenge-2-portfolio/
 
 ## Usage
 
