@@ -2,25 +2,36 @@
 --teal: #0097a7;
 }
 
+* {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h2 {
+    font-size: 24px;
+}
+
 header {
     background: linear-gradient(aquamarine, var(--teal));
 }
 
-header h1 {
+#topper {
+    display: flex;
+    justify-content: center;
+}
+
+#topper h1 {
     padding-top: 50px;
     padding-bottom: 50px;
     font-size: 32px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 header img {
     border: 5px solid black;
-    /* Sets the position of the profile picture outside of the flow */
-    position: absolute;
-    top: 10px;
-    left: 5%;
-    width: 108px;
-    height: 108px;
+    margin: 10px;
+    max-width: 108px;
+    max-height: 108px;
 }
 
 nav ul {
@@ -41,7 +52,7 @@ nav li a {
     font-weight: bold;
 }
 
-/* When an one of the links in the nav bar is hovered over, the color changes */
+/* When one of the links in the nav bar is hovered over, the color changes */
 nav li a:hover {
     background-color: var(--teal);
     color: #e7e7e7;
@@ -82,15 +93,22 @@ article a {
 #deployed-applications {
     padding-top: 25px;
     display: grid;
-    /* 1 column is 30% of the width, the second is 70% */
-    grid-template-columns: 30% 1fr;
-    grid-template-rows: 50 repeat(2, 100px);
+    /* 1 column is 30% of the width, three evenly take up the rest of the width */
+    grid-template-columns: 30% repeat(3, 1fr);
+    grid-template-rows: 20px 33vw 15vw;
     gap: 1em 20px;
+}
+
+#deployed-applications p {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
 
 #card1 {
     grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
 }
@@ -99,8 +117,8 @@ article a {
     /* blurs and darkens the image when not hovered over */
     filter: brightness(66%) blur(2px);
     border-radius: 35px;
-    width: 750px;
-    height: 450px;  
+    max-width: 70%;  
+    background-size: cover;
 }
 
 #card1 img:hover {
@@ -114,7 +132,7 @@ article a {
     color: white;
     padding: 5px 30px 20px 5px;
     border: 1px dashed black;
-    top: 100%;
+    bottom: -5px;
     left: 35%;
 }
 
@@ -129,8 +147,8 @@ article a {
     /* blurs and darkens the image when not hovered over */
     filter: brightness(66%) blur(2px);
     border-radius: 12px;
-    width: 250px;
-    height: 150px; 
+    max-width: 80%;  
+    background-size: cover;
 }
 
 .cards img:hover {
@@ -145,8 +163,18 @@ article a {
     color: white;
     padding: 5px 8px 20px 5px;
     border: 1px dashed black;
-    top: 130%;
-    left: 32%;
+    bottom: -280px;
+}
+
+/* This is basically just a duplicate that I can hide once the screen gets too small */
+.cards h5 {
+    position: absolute;
+    font-size: 12px;
+    background-color: var(--teal);
+    color: white;
+    padding: 5px 8px 20px 5px;
+    border: 1px dashed black;
+    bottom: -280px;
 }
 
 footer {
@@ -154,4 +182,89 @@ footer {
     display: grid;
     grid-template-columns: 30% 1fr;
     gap: 1em 20px;
+    padding-bottom: 10px;
+}
+
+/* Shift the title of the card up when below 1090px */
+@media screen and (max-width: 1090px) {
+    .cards h4 {
+        position: absolute;
+        bottom: -200px;
+        font-size: 70%;
+    }
+}
+
+@media screen and (max-width: 925px) {
+    /* Hides the extra title from the first card so it can be displayed differently. */
+    /* This is such an ugly workaround, FIX LATER */
+    .hide2 {
+        display: none;
+    }
+    .cards h4 {
+        position: static;
+        display: inline;
+        font-size: 12px;
+        background-color: var(--teal);
+        padding: 0%;
+        color: white;
+        border: 1px dashed black;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    /* Changes the header to wrap when screen is below 870px */
+    #topper {
+        flex-wrap: wrap;
+    }
+    #topper h1 {
+        padding: 10px;
+        margin: 5%;
+    }
+    /* Column nav bar */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul li {
+        border: 1px solid black;
+        padding: 5px;
+    }
+    #about-me {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    /* More ugly workaround, FIX LATER */
+    .hide1 {
+        display: none;
+    }
+    #deployed-applications {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #card1 h3 {
+        position: static;
+        padding: 0%;
+        text-align: center;
+    }
+    #card1 img {
+        max-width: 100%;
+    }
+    .cards h4 {
+        font-size: 100%;
+        display: block;
+        text-align: center;
+    }
+    .cards img {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    * {
+        font-size: 12px;
+    }
 }
